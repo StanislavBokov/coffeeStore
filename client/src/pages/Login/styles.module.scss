@@ -1,0 +1,12 @@
+@import '../../assets/styles/mixins';
+
+.loginWrapper {
+    @include flexbox();
+    height: 80vh;
+}
+
+.formWrapper {
+    & > p {
+        margin-bottom: spacing(1.5) !important;
+    }
+}

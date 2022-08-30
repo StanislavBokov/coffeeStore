@@ -1,0 +1,14 @@
+@import '../../assets/styles/mixins';
+@import '../../assets/styles/color-themes';
+
+.bars {
+    width: 150px;
+    height: 5px;
+    background-color: var(--progressbar-unfill-background-color);
+    margin-bottom: spacing(1) !important;
+
+    .fillBars {
+        height: 100%;
+        background-color:var(--progressbar-fill-background-color)
+    }
+}

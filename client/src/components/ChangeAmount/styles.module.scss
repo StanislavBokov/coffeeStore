@@ -1,0 +1,10 @@
+@import '../../assets/styles/mixins';
+
+.amount {
+    width: 80px;
+    @include flexbox(space-between);
+
+    .btnsAmount {
+        font-size: 23px;
+    }
+}

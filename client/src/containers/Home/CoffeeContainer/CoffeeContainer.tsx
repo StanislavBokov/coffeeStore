@@ -1,0 +1,145 @@
+import { FC, useState } from 'react';
+import { H1, MySelect, Text, Button, CoffeeItem, Pagination } from '../../../components';
+import styles from './styles.module.scss';
+import { paginate } from '../../../utils/paginate';
+import { useTypedSelector } from '../../../hooks/useTypedSelector';
+import { CoffeeItem as CoffeeItemType } from '../../../types';
+import { optionPrice, optionGrade, optionDegreeRoast, optionCountryGrowth } from './helper';
+import _ from 'lodash';
+
+interface Props {
+    coffeeArray: CoffeeItemType[]
+}
+export type SortBy = "asc" | "desc"
+export const CoffeeContainer:FC<Props> = ({ coffeeArray }) => {
+  console.log(coffeeArray);
+  
+  const { loading, error } = useTypedSelector((state) => state.coffee)
+
+  const [sortBy, setSortBy] = useState<SortBy>("asc");
+  const [sortByGrade, setSortByGrade] = useState<SortBy>("asc");
+  const [roastDegree, setRoastDegree] = useState<string[]>([]);
+  const [countryGrowth, setCountryGrowth] = useState<string[]>([]);
+  
+  const [iter, setIter] = useState("minPrice");
+  const [filteredBy, setFilteredBy] = useState('byCountry');
+
+  const isSortBy = iter === "minPrice" ? sortBy : sortByGrade;
+  const sortedArray = _.orderBy(coffeeArray,[iter], [isSortBy]);
+
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const changePage = (page: number) => {
+    setCurrentPage(page);
+  };
+
+  const filteredArray = sortedArray.filter((c) => {
+    if(filteredBy === 'byRoast') {
+      if(roastDegree.length) {
+        return roastDegree.includes(c.degreeRoast);
+      }
+      return sortedArray;
+    } else if(filteredBy === 'byCountry') {
+      if(countryGrowth.length) {
+        return countryGrowth.includes(c.country);
+      }
+      return sortedArray;
+    }
+  });
+
+  const setFilteredByItem = (filteredBy: string) => {
+    if(filteredBy === 'byRoast') {
+      setFilteredBy('byRoast');
+      setCountryGrowth([]);
+      setCurrentPage(1);
+    } else if(filteredBy === 'byCountry') {
+      setFilteredBy('byCountry');
+      setRoastDegree([]);
+      setCurrentPage(1);
+    }
+  };
+  const resetFilters = () => {
+    setCountryGrowth([]);
+    setRoastDegree([]);
+  };
+  
+  const pageSize = 3;
+  const slicedDataArray = paginate(filteredArray, currentPage, pageSize );
+
+  return (
+    <div className={styles.CoffeeContainer}>
+      <H1 className={styles.title}>Каталог кофе</H1>
+      <div className={styles.selectWrapper}>
+        <div className={styles.selectItemWrapper}>
+          <Text>Цена</Text>
+          <MySelect options={optionPrice} value={sortBy} setValue={setSortBy} onInputChange={() => setIter("minPrice")}  className="custom-select" />
+        </div>
+        <div className={styles.selectItemWrapper}>
+          <Text>Степень обжарки</Text>
+          <MySelect 
+            options={optionDegreeRoast} 
+            value={roastDegree} 
+            setValue={setRoastDegree} 
+            isMulti={true} 
+            placeholder="Степень обжарки"
+            onInputChange={() => setFilteredByItem('byRoast')}
+            className="custom-select"
+          />
+        </div>
+        <div className={styles.selectItemWrapper}>
+          <Text>Страна произростания</Text>
+          <MySelect 
+            options={optionCountryGrowth} 
+            value={countryGrowth} 
+            setValue={setCountryGrowth} 
+            isMulti={true} 
+            placeholder="Страна произростания"
+            onInputChange={() => setFilteredByItem('byCountry')}
+            className="custom-select"
+          />
+        </div>
+        <div  className={styles.selectItemWrapper}>
+          <Text>Оценка Q-грейдера</Text>
+          <MySelect options={optionGrade} value={sortByGrade} setValue={setSortByGrade} onInputChange={() => setIter("grade")}  className="custom-select"/>
+        </div>
+      </div>  
+      <div className={styles.showedSorts}>
+        {filteredArray.length ? 
+          <Text size="lg" weight="regular">{`Показано сортов: ${filteredArray.length}`}</Text> :
+          <Text size="lg" weight="regular">На данный момент лот отсутствует</Text>
+        }
+        <Button size="sm" onClick={resetFilters}>Сбросить фильтры</Button>
+      </div>
+      {loading && <H1>Loading...</H1>}
+      {error && <H1 color="error">{error}</H1>}
+      <div className={styles.wrapperCoffee}>
+        {slicedDataArray.map((coffee) => (
+          <CoffeeItem 
+            key={coffee._id}
+            id={coffee._id}
+            name={coffee.name} 
+            country={coffee.country} 
+            images={coffee.images}
+            minPrice={coffee.minPrice}
+            maxPrice={coffee.maxPrice}
+            forWhat={coffee.forWhat}
+            fermentation={coffee.fermentation}
+            description={coffee.description}
+            acidity={coffee.acidity}
+            density={coffee.density}
+            maxValue={coffee.maxValue}
+          />
+        ))}
+      </div>
+      {filteredArray.length/pageSize > 1 && 
+        <Pagination 
+          length={filteredArray.length} 
+          currentPage={currentPage}
+          changePage={changePage}
+          pageSize={pageSize}
+        />
+      }
+    </div>
+
+  );
+};

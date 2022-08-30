@@ -1,0 +1,44 @@
+@import './color-constants';
+
+
+$buttonColorsDefault: (
+    /// filled
+
+    // border
+    'button-filled-default-border': $colorBlack,
+    'button-filled-hover-border': $colorRed5,
+    'button-filled-active-border': $colorRed5,
+    'button-filled-disabled-border': $colorBlack,
+    
+
+    // background
+
+    'button-filled-default-background': $colorWhite,
+    'button-filled-hover-background': $colorWhite,
+    'button-filled-active-background': $colorWhite,
+    'button-filled-disabled-background': $colorWhite,
+
+    /// outlined
+
+    // background
+
+    'button-outlined-default-background': transparent,
+    'button-outlined-hover-background': transparent,
+    'button-outlined-active-background': transparent,
+    'button-outlined-disabled-background': transparent,
+
+    // border
+    'button-outlined-default-border': $colorBlack,
+    'button-outlined-hover-border': $colorRed5,
+    'button-outlined-active-border': $colorRed10,
+    'button-outlined-disabled-border': $colorBlack,
+
+    // color
+    
+    'button-outlined-default-color': $colorBlack,
+    'button-outlined-hover-color': $colorBlack5,
+    'button-outlined-active-color': $colorDarkGrey,
+    'button-outlined-disabled-color': $colorBlack,
+
+   
+)

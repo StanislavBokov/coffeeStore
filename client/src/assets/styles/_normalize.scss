@@ -1,0 +1,67 @@
+html,
+body,
+div[id='root'] {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  border: 0;
+  // background: $colorBlack400;
+  // font-family: $default-font, sans-serif;
+
+  div,
+  input,
+  optgroup,
+  select,
+  a,
+  button,
+  textarea {
+    box-sizing: border-box;
+    // margin: 0;
+    // font-size: inherit;
+    // line-height: inherit;
+    transition: 200ms;
+  }
+  *,
+  ::after,
+  ::before {
+    box-sizing: border-box;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  ul,
+  ol {
+    padding:0;
+    margin: 0;
+    list-style: none;
+  }
+
+  a {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  button {
+    box-sizing: border-box;
+  }
+
+  .flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+

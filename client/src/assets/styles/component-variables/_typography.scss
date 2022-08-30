@@ -1,0 +1,10 @@
+@import './color-constants';
+
+$typographyColorsDefault: (
+  'typography-default-color': $colorBlack,
+  'typography-secondary-color': $colorDarkGrey,
+  'typography-error-color': $colorRed,
+  'typography-success-color': $colorGreen,
+  'typography-yellow-color': $colorYellow,
+  'typography-pink-color': $colorPink
+);

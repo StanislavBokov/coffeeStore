@@ -1,0 +1,48 @@
+@import '../../assets/styles/mixins';
+
+@keyframes loader {
+    0% {
+        transform: rotate(0deg);
+    } 100% {
+        transform: rotate(360deg);
+    }
+}
+
+.Registration {
+
+    // margin: spacing(6);
+    margin-top: spacing(12) !important;
+    .wrapper {
+        // @include centered();
+ 
+        
+        @include flexbox(center, center);
+
+        .mainDataWrapper {
+            // border: 1px solid red;
+            // margin-right: spacing(8);
+            position: relative;
+
+            .signUpBtn {
+                margin: spacing(4, 0);
+                // align-self: center;
+                // width: 100%;
+                
+                .imgLoader {
+                    animation: loader linear 1.5s infinite;
+                }
+            }
+            .message {
+                position: absolute;
+                top: 80px;
+            }
+            .messageErrorPassword {
+                position: absolute;
+                top: 360px;
+            }
+        }
+        .titles {
+            margin: spacing(6,0);
+        }
+    }
+}

@@ -1,0 +1,88 @@
+@import '../../../assets/styles/mixins';
+@import '../../../assets/styles/color-themes';
+
+.mainTitle {
+    margin-bottom: spacing(6) !important
+}
+.inputContainer {
+    @include flexbox(start, space-between);
+
+    gap: spacing(10);
+    .column1 {
+        max-width: 400px;   
+    }
+    .column2 {
+        min-width: 420px;  
+
+        .btnContainer {
+            @include flexbox(space-between, center);
+            margin-bottom: spacing(10);
+            position: relative;
+
+            .listContainer {
+                position: absolute;
+                top:55px;
+                left: 10px;
+
+                .list {
+                    line-height: 22px;
+                }
+            }
+            .textMessage {
+                position: absolute;
+                top:50px;
+                left: 10px;
+            }
+        }
+        .rangeInputContainer {
+            .rangeInputItem {
+                margin-bottom: spacing(2);
+
+                .inputRange {
+                    min-width: 100%;
+                    margin-bottom: spacing(1);
+                  
+                }
+            }
+        }
+    }
+}
+.selectsContainer {
+    min-width: 400px;
+    padding-top: spacing(4.5);
+}
+
+.hidden {
+    opacity: 0;
+    height: 0;
+    width: 0;
+    line-height: 0;
+    overflow: 0;
+    padding: 0;
+    margin: 0
+}
+.textMessage {
+    margin-top: spacing(1) !important;
+}
+
+    .inputRange {
+        overflow: hidden;
+        -webkit-appearance: none;
+        background-color: var(--input-range-progressbar-background-color);
+    }
+    
+    .inputRange::-webkit-slider-runnable-track {
+        height: 10px;
+        -webkit-appearance: none;
+        margin-top: -1px;
+    }
+    
+    .inputRange::-webkit-slider-thumb {
+        width: 10px;
+        -webkit-appearance: none;
+        height: 30px;
+        cursor: ew-resize;
+        background: var(--input-range-thumb-background-color);
+        box-shadow: -320px 0 0 320px var(--input-range-progressbar-fill-background-color);
+   
+    }

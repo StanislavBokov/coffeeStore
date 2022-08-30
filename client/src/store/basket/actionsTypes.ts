@@ -1,0 +1,9 @@
+const FETCHING_BASKET = 'FETCHING_BASKET' as const ;
+const REMOVE_COFFEEITEM = 'REMOVE_COFFEEITEM' as const ;
+const BUY_COFFEE = 'BUY_COFFEE' as const ;
+
+export default {
+  FETCHING_BASKET,
+  REMOVE_COFFEEITEM,
+  BUY_COFFEE
+};

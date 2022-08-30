@@ -1,0 +1,15 @@
+@import '../../assets/styles/mixins';
+@import '../../assets/styles/color-themes';
+
+.packVariableWrapper {
+    width: 140px;
+    @include flexbox(space-between);
+
+    .btnPrice {
+        color: var(--typography-secondary-color);
+
+    }
+    .selectedPrice {
+        color: black
+    }
+}

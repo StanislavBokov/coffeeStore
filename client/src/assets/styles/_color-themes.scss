@@ -1,0 +1,26 @@
+@import './component-variables/typography';
+@import './component-variables/button';
+@import './component-variables/card';
+@import './component-variables/header';
+@import './component-variables/input';
+@import './component-variables/footer';
+@import './component-variables/select';
+@import './component-variables/progressbar';
+
+:root {
+  $colors: (
+    $typographyColorsDefault,
+    $buttonColorsDefault,
+    $cardColorDefault,
+    $HeaderColorDefault,
+    $inputColorDefault,
+    $footerColorDefault,
+    $selectColorDefault,
+    $progressbarColorDefault,
+  );
+  @each $key_name in $colors {
+    @each $key_name_2, $value in $key_name {
+      --#{$key_name_2}: #{$value};
+    }
+  }
+}

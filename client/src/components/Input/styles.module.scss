@@ -1,0 +1,100 @@
+
+@import '../../assets/styles/mixins';
+@import '../../assets/styles/component-variables/color-constants';
+@import '../../assets/styles/color-themes';
+
+.wrapperInput {
+    min-width: 520px;
+
+    label {
+        position: relative;
+
+        .Input {
+            border: 2px solid var(--input-default-border-color);
+            // border-radius: spacing(0.5);
+            padding: spacing(2,3);
+            min-width: 400px;
+            font-size: 18px;
+            outline: none;
+
+            &:hover {
+                border-color:var(--input-hover-border-color)
+           }
+        }
+        .imgEye {
+            position: relative;
+            left:-35px;
+            top:5px;
+            width: 20px;
+        }
+
+        .isValue {
+            transform: translateY(-28px);
+            background-color: $mainBkg;
+        }
+    
+        .span {
+            font-size: 18px;
+            position: absolute;
+            top:-2px;       
+            left:18px;
+            padding: spacing(0,1);
+        }
+        .isTextArea {
+            font-size: 18px;
+            position: absolute;
+            top:-105px;
+            padding: spacing(0,1);
+        }
+        .textArea {
+            border: 2px solid var(--input-default-border-color);
+            // border-radius: spacing(0.5);
+            padding: spacing(2,3);
+            min-width: 400px;
+            font-size: 18px;
+            outline: none;
+
+            &:hover {
+                border-color:var(--input-hover-border-color)
+           }
+        }
+       
+        
+        .errorMessage {
+            color: var(--input-error-border-color);
+            padding: spacing(1);
+         
+           
+        }
+        
+        .error {
+            color:var(--input-error-border-color);
+        }
+
+        &:focus-within  {
+            color:var(--input-focus-border-color);
+
+            .span {
+                transition: transform 0.3s;
+                transform: translateY(-28px);
+                background-color: $mainBkg;
+            }
+            
+            .Input {
+                border-color: var(--input-focus-border-color) ;
+            }
+            .textArea {
+                border-color: var(--input-focus-border-color) ;
+            }
+        }
+
+       
+
+        .error {
+            border-color:var(--input-error-border-color) !important;
+        }
+    }
+    
+   
+
+}

@@ -1,0 +1,29 @@
+@import '../../../assets/styles/mixins';
+
+.CoffeeContainer {
+
+    .selectWrapper {
+        @include flexbox(space-between);
+        flex-wrap: wrap;
+        margin: spacing(3, 0);
+
+        .selectItemWrapper {
+
+            p {
+                margin-bottom: spacing(1.25);
+            }
+        }
+    }
+    .wrapperCoffee {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 450px);
+        gap: spacing(6);       
+    }
+    .showedSorts {
+        margin-bottom: spacing(4);
+
+        p {
+            margin-bottom: spacing(4);
+        }
+    }
+}

@@ -1,0 +1,20 @@
+@import '../../assets/styles/mixins';
+
+.Pagination {
+
+    margin: spacing(6, 0) !important;
+    @include flexbox(start);
+
+    .item {
+        // border: 1px solid black;
+        // width: 40px;
+        // height: 40px;
+        // border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+        margin-right: spacing(2);
+    }
+    .currentPage {
+        color: rgb(97, 97, 97);
+    }
+}

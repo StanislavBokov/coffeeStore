@@ -1,0 +1,45 @@
+@import '../../../../assets/styles/mixins';
+.info {
+    @include flexbox(start);
+    margin-bottom: spacing(6) !important;
+    .roasing {
+        border:1px solid black;
+        max-width: 400px ;
+        padding: spacing(3,3,7);
+
+        .fairImg {
+            width: 45px;
+            transform: translateX(-25%);
+        }
+
+        & > p:last-child {
+            margin-top: spacing(2);
+        }
+    }
+    .seedInfoext {
+        @include flexbox(space-between,space-between,column);
+        border:1px solid black;
+        max-width: 400px;
+        height: 217px;
+        padding: spacing(3); 
+        margin-left: -2px;
+
+        .seedImg {
+            width: 45px;
+            transform: translateX(-10%);
+        }
+    }
+    .greed {
+        @include flexbox(center, center, column);
+        border:1px solid black;
+        max-width: 200px;
+        height: 217px;
+        padding: spacing(3);
+        margin-left: -1px;
+       
+        & > p {
+            margin-bottom: spacing(2);
+        }
+
+    }
+}

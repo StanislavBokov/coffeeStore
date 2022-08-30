@@ -1,0 +1,56 @@
+@import '../../assets/styles/mixins';
+
+.Basket {
+    @include flexbox(space-between, flex-start);
+    @include centered();
+    .orderingWrapper {
+        max-width:400px;
+  
+        .mainTitle {
+            margin-bottom: spacing(2);
+        }
+        .titlesOrder {
+            margin: spacing(2, 0);
+        }
+        .textArea {
+            margin-top: spacing(3);
+        }
+  
+    }
+    .wrapper {
+        min-width: 800px;
+
+        .btn {
+            margin-top: spacing(2);
+        }
+        .titleBasket {
+            margin-bottom: spacing(3)
+        }
+        .selectedItemWrapper {
+
+            .info {
+                margin-bottom: spacing(4);
+    
+                .date {
+                    max-width: 400px;
+                    @include flexbox(space-between);
+
+                    .textWrapper {
+                        @include flexbox(space-between, flex-start, column);
+                        height: 60px;    
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include forDesktopHuge {
+    .Basket {
+        gap: 50px;
+    }
+
+    .wrapper {
+        width: 400px
+    }
+}

@@ -1,0 +1,43 @@
+@import '../../assets/styles/mixins';
+@import '../../assets/styles/color-themes';
+
+@keyframes changeColor {
+    0% {
+        background-color: $lightRed;
+    }
+    20% {
+        background-color: $lightGreen;
+    }
+    40% {
+        background-color: $lightBlue;
+    }
+    60% {
+        background-color: $lightGreen5;
+    }
+    80% {
+        background-color: $lightViolet;
+    }
+    100% {
+        background-color: $lightRed;
+    }
+}
+
+.Footer {
+    margin-top: auto !important;
+
+    .firstPart {
+        
+        animation: changeColor 10s infinite;
+
+        .wrapper {
+            @include centered();
+
+            p:first-child {
+                margin-bottom: spacing(2)
+            }
+        }
+    }
+    .secondPart {
+        @include centered()
+    }
+}

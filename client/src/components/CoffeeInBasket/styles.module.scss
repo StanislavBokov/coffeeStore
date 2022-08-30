@@ -1,0 +1,30 @@
+@import '../../assets/styles/mixins';
+
+.CoffeeInBasket {
+    
+    display: flex;
+    gap: 20px;
+    border-bottom: 1px solid black;
+    margin-bottom: spacing(4);
+
+    .gridContainer {
+        width: 100%;
+    display: grid;
+    grid-template-columns: 30% 30% 25% 0%;
+    }
+    .img {
+        width: 150px;
+    }
+    .infoText {
+        margin-bottom: spacing(0.5);
+    }
+}
+@include forDesktopHuge {
+    .CoffeeInBasket {
+
+        .gridContainer {
+            grid-template-columns: 20% 25% ;
+        }
+     
+    }
+}

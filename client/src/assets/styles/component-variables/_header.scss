@@ -1,0 +1,11 @@
+@import './color-constants';
+
+$HeaderColorDefault: (
+  // background
+
+  'header-default-background': $colorGrey5,
+  // box-shadow
+
+  'header-default-box-shadow': $colorLightPink,
+
+);

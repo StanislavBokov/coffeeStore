@@ -1,0 +1,9 @@
+@import './color-constants';
+
+$progressbarColorDefault: (
+  // background-color
+
+  'progressbar-unfill-background-color': $colorGray20,
+  'progressbar-fill-background-color': $colorGray25,
+  
+);

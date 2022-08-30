@@ -1,0 +1,32 @@
+@import '../../assets/styles/mixins';
+@import '../../assets/styles/color-themes';
+
+.Header {   
+    padding-bottom: spacing(10);
+    .wrapper {
+        position: relative;
+        @include flexbox(space-between);
+        @include centered();
+        // padding:spacing(0,2)
+    }
+    .info {
+        @include flexbox(space-between);
+        width: 500px;
+        .links {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        .mainLogo {
+            margin: spacing(0) !important;
+            width: 60px;
+        }
+    }
+}
+@include forDesktopHuge {
+    .Header {
+        // padding: spacing(0,2)
+        // background-color: violet;
+    }
+}
+

@@ -1,0 +1,23 @@
+@import './color-constants';
+
+$inputColorDefault: (
+  // border-color
+
+  'input-default-border-color': $colorBlack,
+  'input-error-border-color': $colorRed,
+
+  // focus
+
+  'input-focus-border-color': $colorGreen,
+
+  // hover
+
+  'input-hover-border-color': $colorRed5,
+
+  //// input-range
+
+  'input-range-progressbar-background-color': $lightViolet5,
+  'input-range-progressbar-fill-background-color': $lightViolet10,
+  'input-range-thumb-background-color': $brown,
+  
+);

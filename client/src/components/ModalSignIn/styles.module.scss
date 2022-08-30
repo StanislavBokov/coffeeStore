@@ -1,0 +1,19 @@
+@import '../../assets/styles/mixins';
+
+.btnCloseModal {
+    position: absolute;
+    right:15px;
+    top:15px;
+    transform: scale(1.8);
+}
+.title {
+    margin-bottom: spacing(2) !important;
+}
+.signInBtn {
+    border: 1px solid red;
+    margin-bottom: spacing(2) !important;
+}
+.errorMessage {
+    position: absolute;
+    top: 70px
+}

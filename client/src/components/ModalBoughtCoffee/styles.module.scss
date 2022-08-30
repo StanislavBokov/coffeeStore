@@ -1,0 +1,15 @@
+@import '../../assets/styles/mixins';
+
+.Modal {
+    border-top: 1px solid black;
+
+
+    .checkMark {
+        width: 50px;
+        margin-bottom: spacing(3);
+    }
+    .addInBasketBtn {
+        margin:spacing(3)
+    }
+
+}

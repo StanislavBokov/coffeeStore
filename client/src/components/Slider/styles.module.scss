@@ -1,0 +1,52 @@
+.swiperWrapper {
+    width: 100%;
+    position: relative;
+ 
+
+    .SwiperSlide {
+        text-align: center;
+        .imgCoffee {
+            max-width: 250px;  
+            max-height: 250px;
+           
+              
+        }
+    }
+    .chevrvons {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        top:100px;
+        z-index: 2;
+    }
+
+    .chevronLeft {
+        transform: rotate(180deg);
+        left:30px
+    }
+    .chevronRight {
+        right: 30px
+    }
+
+    .chevronLeftAboutPage {
+        position: absolute;
+        width: 20px;
+
+        
+        &:hover {
+            width: 25px;
+        }
+        
+    }
+    .chevronRightAboutPage {
+        position: absolute;
+        width: 20px;
+        top:60px;
+        left:30px;
+
+        &:hover {
+            width: 25px;
+        }
+    }
+  
+}

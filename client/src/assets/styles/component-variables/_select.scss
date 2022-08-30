@@ -1,0 +1,13 @@
+@import './color-constants';
+
+$selectColorDefault: (
+  // border-color
+
+  'select-default-border-color': $colorBlack,
+
+  // background-color
+
+  'select-default-option-color': $colorGray15,
+  'select-focus-option-color': $colorGray10,
+  
+);

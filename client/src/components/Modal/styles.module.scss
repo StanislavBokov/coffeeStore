@@ -1,0 +1,36 @@
+@import '../../assets/styles/mixins';
+
+.absolute {
+    position: absolute;
+    right: 0;
+    z-index: 10;
+
+    .absolute {
+        @include flexbox(center,center, column);
+        position: absolute;
+        padding: spacing(4);
+        border:1px solid black;
+        background-color: white;
+        right:0;
+        top:80px;   
+    }
+}
+.fixed {
+    @include flexbox(center,center, column);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.2);
+    z-index: 10;
+
+    .fixed {
+    @include flexbox(center,center, column);
+    position: relative;
+    background-color: white;
+    max-width: 450px;
+    padding: spacing(4);
+
+    }
+}

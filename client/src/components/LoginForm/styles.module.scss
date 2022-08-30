@@ -1,0 +1,16 @@
+@import '../../assets/styles/mixins';
+
+.containerForm {
+    position: relative;
+    .title {
+        margin-bottom: spacing(6) !important;
+  
+    }
+    .signInBtn {
+        margin-bottom: spacing(2) !important;
+    }
+    .errorMessage {
+        position: absolute;
+        top: 40px
+    }
+}

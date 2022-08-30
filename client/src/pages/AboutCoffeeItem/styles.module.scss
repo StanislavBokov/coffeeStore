@@ -1,0 +1,51 @@
+@import '../../assets/styles/mixins';
+
+.AboutCoffeeItem {
+   width: 100%;
+    .wrapper {
+        @include centered();
+        display: grid;
+        grid-template-columns: 50% 50%;
+        margin-top: spacing(15);
+
+        .slider {
+            max-width: 500px !important;
+        }
+        .description {
+            margin: spacing(6,0) !important;
+        }
+        .progressBarWrapper {
+            @include flexbox(space-between);
+
+            .barItem {
+                width: 300px;
+                height: 7px;
+            }
+        }
+        .wrapperSelectAndAmount {
+            @include flexbox(space-between);
+            max-width: 250px;
+            margin: spacing(6,0) !important;
+        }
+        .wrapperPackAndBuy {
+            @include flexbox(space-between);
+            max-width: 350px;
+            
+            .widthContainer {
+                width: 150px;
+            }
+        }
+    }
+    
+    .infoWrapper {
+        @include centered();
+        max-width: 1050px;
+
+        .wrapperBtn {
+            @include flexbox(space-between);
+            width: 450px;
+            margin-bottom: spacing(6);
+        }
+    }
+  
+}
