@@ -1,0 +1,29 @@
+@import '../../../assets/styles/mixins';
+@import '../../../assets/styles/color-themes';
+.title {
+    margin-bottom: spacing(6) !important
+}
+.wrapper {
+ 
+    .border {
+        border: 1px solid var(--typography-success-color);
+        position: relative;
+        bottom: 20px;
+        right:30px
+    }
+    .wrappItem {
+        @include flexbox(space-between, start);
+        width: 300px;
+        border-left:1px solid var(--typography-success-color);
+        padding-left: spacing(2);
+
+        .text {
+            margin-bottom: spacing(1);
+        }
+    }
+}
+.message {
+    position: relative;
+    left: 17px;
+    top: 20px
+}

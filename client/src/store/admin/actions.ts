@@ -7,3 +7,4 @@ export const removeLotAction = createAction<string>(actionsTypes.REMOVE_LOT);
 export const upDateLotAction = createAction<any>(actionsTypes.UPDATE_LOT);
 export const addLotAction = createAction<IAddLotAction>(actionsTypes.ADD_LOT);
 export const uploadedFilesAction = createAction<any>(actionsTypes.UPLOADED_FILES);
+export const setAvailabilityLotAction = createAction<string>(actionsTypes.SET_AVAILABILITY_LOT);

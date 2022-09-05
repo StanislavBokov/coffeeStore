@@ -5,3 +5,4 @@ export { default as seed } from './seed/seed.png';
 export { default as openEye } from './eye/openEye.svg';
 export { default as closedEye } from './eye/closedEye.svg';
 export { default as loader } from './loader/loader.svg';
+export { default as setting } from './settingIcon/setting.svg';

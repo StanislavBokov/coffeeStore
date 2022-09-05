@@ -1,15 +1,22 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { UserState } from '../../types';
+import { UserState, orderState } from '../../types';
 import localStorageService from '../../services/localStorage.service';
 
 const initialState: UserState = localStorageService.getAccessToken()
   ? {
     auth: { userId: localStorageService.getUserId(), isAdmin: localStorageService.getRole() },
-    isLoggedIn: true
+    isLoggedIn: true,
+    orders: [],
+    loading: false,
+    successRequest: false
+    
   }
   : {
     auth: null,
-    isLoggedIn: false
+    isLoggedIn: false,
+    orders: [],
+    loading: false,
+    successRequest: false
   };
 
 export const UserReducer = createSlice({
@@ -26,8 +33,21 @@ export const UserReducer = createSlice({
       state.isLoggedIn = false;
       localStorageService.removeAuthData();
       localStorageService.removeAdminData();
-    }
+    },
+    fetchLoadingOrder: (state) => ({
+      ...state,
+      loading: true
+    }),
+    fetchOrdersSuccess: (state, action: PayloadAction<orderState[]>) => ({
+      ...state,
+      orders: action.payload,
+      loading: false
+    }),
+    successReqest:(state, action: PayloadAction<boolean>) => ({
+      ...state,
+      successRequest:action.payload
+    })
   }
 });
-export const { authRequestSuccess, userLoggedOut } = UserReducer.actions;
+export const { authRequestSuccess, userLoggedOut, fetchLoadingOrder, fetchOrdersSuccess, successReqest } = UserReducer.actions;
 export default UserReducer.reducer;

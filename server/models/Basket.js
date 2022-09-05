@@ -11,7 +11,6 @@ const schema = new Schema({
         amount: { type: Number, required: true,  default: 1 },
         grams: { type: Number, required: true,  default: 250 },
         price: { type: Number, required: true }
-
      }]
 }, {
     timestamps: true

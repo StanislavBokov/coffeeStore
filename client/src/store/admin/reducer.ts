@@ -5,7 +5,8 @@ const initialState:AdminState = {
   images: [],
   uploaded: false,
   loading: false,
-  successReqest: false
+  successReqest: false,
+  successRemove: false
 };
 
 export const AdminReducer = createSlice({
@@ -28,8 +29,12 @@ export const AdminReducer = createSlice({
     successReqest:(state, action: PayloadAction<boolean>) => ({
       ...state,
       successReqest:action.payload
+    }),
+    successRemove: (state, action: PayloadAction<boolean>) => ({
+      ...state,
+      successRemove: action.payload
     })
   }
 });
-export const { uploadFies, uploadedFalse, loading, successReqest } = AdminReducer.actions;
+export const { uploadFies, uploadedFalse, loading, successReqest, successRemove } = AdminReducer.actions;
 export default AdminReducer.reducer;

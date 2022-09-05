@@ -4,6 +4,7 @@ const Basket = require('../models/Basket')
 const router = express.Router({ mergeParams: true })
 const tokenService = require('../services/token.service')
 const { check, validationResult } = require('express-validator')
+const Orders = require('../models/orders')
 const bcrypt = require('bcryptjs')
 
 router.post('/signUp',[
@@ -24,6 +25,9 @@ router.post('/signUp',[
             }
             
             const { email, password, isAdmin } = req.body
+            if(isAdmin) {
+                Orders.create({ orders: [] })
+            }
             const exitingUser = await User.findOne({ email: email })
 
             if(exitingUser) {

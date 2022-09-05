@@ -66,6 +66,10 @@ const schema = new Schema({
     degreeRoast: {
         type: String,
         // required: true
+    },
+    available: {
+        type: Boolean,
+        default: true
     }
 }, {
     timestamps: true

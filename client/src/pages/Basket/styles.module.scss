@@ -1,5 +1,13 @@
 @import '../../assets/styles/mixins';
 
+@keyframes loader {
+    0% {
+        transform: rotate(0deg);
+    } 100% {
+        transform: rotate(360deg);
+    }
+}
+
 .Basket {
     @include flexbox(space-between, flex-start);
     @include centered();
@@ -15,13 +23,31 @@
         .textArea {
             margin-top: spacing(3);
         }
-  
+        .btnOrderContainer  {
+            position: relative;
+            .orderBtn {
+                min-width: 140px;
+                max-height: 45px;
+                margin-bottom: spacing(4);
+               
+                .imgLoader {
+                    width: 20px;         
+                }
+            }
+            .textMessage {
+                position: absolute;
+                top: 55px
+            }
+        }
+   
+     
     }
     .wrapper {
         min-width: 800px;
 
         .btn {
-            margin-top: spacing(2);
+            margin-top: spacing(2) !important;
+
         }
         .titleBasket {
             margin-bottom: spacing(3)
@@ -44,7 +70,9 @@
         }
     }
 }
-
+.imgLoader {
+    animation: loader linear 1.5s infinite;
+}
 @include forDesktopHuge {
     .Basket {
         gap: 50px;
