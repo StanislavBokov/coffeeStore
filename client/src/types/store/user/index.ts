@@ -1,5 +1,16 @@
+export type orderState = {
+    id: string,
+    address: string,
+    valueDelivery: string,
+    valuePayment: string,
+    comment: string,
+    lots: any
+}
 
 export type UserState = {
     isLoggedIn: boolean,
-    auth: { userId: string | null, isAdmin: string | null} | null
+    auth: { userId: string | null, isAdmin: string | null} | null,
+    orders: orderState[],
+    loading: boolean,
+    successRequest: boolean
 }

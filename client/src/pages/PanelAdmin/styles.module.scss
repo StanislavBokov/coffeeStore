@@ -1,5 +1,7 @@
 @import '../../assets/styles/mixins';
 
 .PanelAdmin {
-    @include centered()
+    @include centered();
+    @include flexbox(space-between, start);
+    // border: 1px solid red;
 }

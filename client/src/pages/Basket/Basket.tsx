@@ -8,47 +8,68 @@ import { fetchBasketAction } from '../../store/basket/actions';
 import { useSelector, RootStateOrAny } from 'react-redux';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { Link } from 'react-router-dom';
-import { ItemBasket } from '../../types';
-import useInput from '../../hooks/useInput';
+import { optionsPayment, optionsDelivery } from './helper';
+import { todoOrderAction } from '../../store/user/actions';
+import { loader } from '../../assets/icons';
+import { CSSTransition } from 'react-transition-group';
+import { successReqest } from '../../store/user/reducer';
 
 export const Basket:FC = () => {
   const dispatch = useDispatch();
 
-  const address = useInput('');
-  const comment = useInput('');
-  const { userId }  = useSelector((state:RootStateOrAny) => state.user.auth); // fix it
+  const [valueData, setValueData] = useState({
+    address: '',
+    comment: ''
+  })
+
+  const [valueDelivery, setValueDelivery] = useState("СДЭК");
+  const [valuePayment, setValuePayment] = useState("Картой онлайн");
+
+  const { auth, orders, loading, successRequest }  = useSelector((state:RootStateOrAny) => state.user); // fix it
+  const { basket } = useTypedSelector((state) => state.basket);
   
   useEffect(() => {
-    dispatch(fetchBasketAction(userId));
+    dispatch(fetchBasketAction(auth.userId));
     dispatch(fetchCoffeeAction())
   },[]);
 
-  const { basket } = useTypedSelector((state) => state.basket);
+  useEffect(() => {
+    if(successRequest) {
+      setValueData({
+        address: '',
+        comment: ''
+      })
+    }
+  }, [successRequest])
 
   const totalSum = basket.reduce((acc: any, curr:any) => {
     return acc + (curr.price * curr.amount); 
   }, 0);
-  
-  const optionsDelivery = [
-    { value: "СДЭК", label: "СДЭК" },
-    { value: "OZON", label: "OZON" }
-  ];
 
-  const optionsPayment = [
-    { value: "Картой онлайн", label: "Картой онлайн" },
-    { value: "При доставке", label: "При доставке" }
-  ];
-  const [valueDelivery, setValueDelivery] = useState("СДЭК");
-  const [valuePayment, setValuePayment] = useState("Картой онлайн");
+  const handleChange = ({ target }:React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {    
+    setValueData((prevState:any) => ({
+      ...prevState,
+      [target.name]: target.value
+    }));
+  };
 
-  const mock = { roast: '13 июня 13:00 МСК', send: '14 июня' };
+  const handleTodoOrder = () => {
+    dispatch(todoOrderAction({ 
+      id: auth.userId,
+      address: valueData.address, 
+      valueDelivery, 
+      valuePayment, 
+      comment: valueData.comment
+    }))
+  }
+
   return (
     <div className={styles.Basket}>
       <div className={styles.orderingWrapper}>
         <div>
           <H2 className={styles.mainTitle}>Оформление заказа</H2>
           <div>
-            <Input {...address} name="adress" placeholder="Населенный пункт" id="1"/>
+            <Input value={valueData.address} onChange={handleChange} name="address" placeholder="Населенный пункт" id="1"/>
           </div>
           <div>
             <H3 className={styles.titlesOrder}>Способ доставки</H3>
@@ -59,10 +80,21 @@ export const Basket:FC = () => {
             <MySelect options={optionsPayment} value={valuePayment} setValue={setValuePayment} className="custom-select"  />
           </div>
           <div>
-            <Input {...comment} name="adress" placeholder="Комментарий к заказу" textArea className={styles.textArea} id="2"/>
+            <Input value={valueData.comment} onChange={handleChange} name="comment" placeholder="Комментарий к заказу" textArea className={styles.textArea} id="2"/>
           </div>
           <H3 className={styles.titlesOrder}>Итого к оплате: {totalSum}</H3>
-          <Button size="sm">Оформить</Button>
+          <div className={styles.btnOrderContainer}>
+            <Button size="sm" onClick={handleTodoOrder} className={styles.orderBtn}>{loading ? <img src={loader} className={styles.imgLoader}/> : 'Оформить'}</Button>
+            <CSSTransition
+              in={successRequest}
+              timeout={300}
+              unmountOnExit
+              classNames="message"
+            >
+              <Text className={styles.textMessage} color="success">Заказ оформлен</Text>
+            </CSSTransition>
+          </div>
+       
         </div>
       </div>
      
@@ -70,20 +102,10 @@ export const Basket:FC = () => {
         {basket.length ? <div className={styles.selectedItemWrapper}>
           <div className={styles.info}>
             <H2 className={styles.titleBasket}>Корзина</H2>
-            {/* <div className={styles.date}> */}
-            {/* <div className={styles.textWrapper}>
-                <Text>Передаем на обжарку: </Text>
-                <Text size="lg">{mock.roast}</Text>
-              </div>
-              <div className={styles.textWrapper}>
-                <Text>Отправка:</Text>
-                <Text size="lg">{mock.send}</Text>
-              </div> */}
-            {/* </div> */}
           </div>
-          {basket.map((item: ItemBasket) => (
+          {basket.map((item) => (
             <CoffeeInBasket 
-              userId={userId}
+              userId={auth.userId}
               _id={item._id}
               key={item._id}
               idProduct={item.id}

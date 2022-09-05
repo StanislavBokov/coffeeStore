@@ -1,0 +1,1 @@
+export { default as mainImg } from './mainImg.jpg';

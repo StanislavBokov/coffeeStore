@@ -8,8 +8,6 @@ router.get('/:userId', auth, async (req, res) => {
     const { userId }  = req.params  
     
     try {
-    
-
         const basket = await Basket.findOne({ user: userId })
         console.log(basket);
         
@@ -35,7 +33,20 @@ router.post('/', async (req, res) => {
         })
     }
 })
-
+router.post('/clearBasket', async (req, res) => {
+   
+    try {
+        const { userId } = req.body // product = Object
+        const basket = await Basket.findOne({ user: userId })
+         basket.product = []
+         basket.save()
+         res.status(200).send(basket)
+    } catch (error) {
+        res.status(500).json({
+            message: 'На сервере произошла ошибка'
+        })
+    }
+})
 
 router.delete('/', async (req, res) => {
    

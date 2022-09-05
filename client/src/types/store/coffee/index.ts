@@ -14,7 +14,8 @@ export type CoffeeItem = {
     aboutCoffee?: string,
     description: string,
     grade: number,
-    _id: string
+    _id: string,
+    available: boolean
 }
 export type CoffeeState = {
     coffee: CoffeeItem[],

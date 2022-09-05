@@ -4,7 +4,6 @@ const router = express.Router({ mergeParams: true })
 const auth = require('../middleware/auth.middleware')
 const app = express()
 const fileUpload = require('express-fileupload')
-const CoffeeItem = require('../models/CoffeeItem')
 
 app.use(express.urlencoded({ extended: false }))
 app.use(fileUpload({
@@ -17,8 +16,7 @@ router.get('/',  async (req, res) => {
     try {
      
         const coffee = await Coffee.find()
-       
-        console.log(coffee)
+    
         res.status(200).send(coffee)
     } catch (error) {
         res.status(500).json({
@@ -40,13 +38,31 @@ router.delete('/',  async (req, res) => {
         })
     }
 })
+router.put('/setAvailabilityLot',  async (req, res) => {
+ 
+
+    try {
+        const { id } = req.body
+        const coffee = await Coffee.findById(id)
+        await coffee.updateOne( { available: !coffee.available }, { new: true })
+        const newLots = await Coffee.find()
+        
+     
+        res.status(200).send(newLots)
+    } catch (error) {
+        res.status(500).json({
+            message: 'На сервере произошла ошибка'
+        })
+    }
+})
+
 router.post('/addLot',  async (req, res) => {
     
     try {
-    
-        // console.log(req.body);
-        const newLot = await CoffeeItem.create(req.body)
-        res.status(200).send('newLot')
+ 
+        await Coffee.create(req.body)
+        const newLots = await Coffee.find()
+        res.status(200).send(newLots)
     } catch (error) {
         res.status(500).json({
             message: 'На сервере произошла ошибка'

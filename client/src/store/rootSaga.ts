@@ -11,6 +11,8 @@ import removeLotSaga from './admin/saga/removeLot';
 import upDateLotSaga from "./admin/saga/upDateLot";
 import addLotSaga from './admin/saga/addLot'
 import uploadedFilesSaga from "./admin/saga/uploadFiles";
+import setAvailabilityLotSaga from "./admin/saga/setAvailabilityLot";
+import todoOrderSaga from "./user/sagas/todoOrder";
 
 export default function* rootSaga() {
   yield fork(buyCoffeeSaga);
@@ -24,4 +26,6 @@ export default function* rootSaga() {
   yield fork(upDateLotSaga);
   yield fork(addLotSaga);
   yield fork(uploadedFilesSaga);
+  yield fork(setAvailabilityLotSaga);
+  yield fork(todoOrderSaga);
 }

@@ -3,6 +3,7 @@
 
 .Header {   
     padding-bottom: spacing(10);
+    padding-top: spacing(2);
     .wrapper {
         position: relative;
         @include flexbox(space-between);

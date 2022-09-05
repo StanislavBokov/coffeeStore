@@ -4,7 +4,8 @@ export interface AdminState {
     images: string[],
     uploaded: boolean,
     loading: boolean,
-    successReqest: boolean
+    successReqest: boolean,
+    successRemove: boolean
 }
 
 export interface IAddLotAction extends DataTextInput, DataRangeInput {

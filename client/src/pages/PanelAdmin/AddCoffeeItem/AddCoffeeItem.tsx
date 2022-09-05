@@ -77,7 +77,7 @@ export const AddCoffeeItem:FC = () => {
   }
 
   return (
-    <>
+    <div>
       <H2 className={styles.mainTitle}>Добавить лот</H2>
       <div className={styles.inputContainer}>
         <div className={styles.column1}>
@@ -164,6 +164,6 @@ export const AddCoffeeItem:FC = () => {
         </div>
        
       </div>
-    </>
+    </div>
   );
 };
