@@ -12,7 +12,6 @@ import { optionsPayment, optionsDelivery } from './helper';
 import { todoOrderAction } from '../../store/user/actions';
 import { loader } from '../../assets/icons';
 import { CSSTransition } from 'react-transition-group';
-import { successReqest } from '../../store/user/reducer';
 
 export const Basket:FC = () => {
   const dispatch = useDispatch();
@@ -54,6 +53,8 @@ export const Basket:FC = () => {
   };
 
   const handleTodoOrder = () => {
+    console.log('ee');
+    
     dispatch(todoOrderAction({ 
       id: auth.userId,
       address: valueData.address, 
@@ -84,7 +85,7 @@ export const Basket:FC = () => {
           </div>
           <H3 className={styles.titlesOrder}>Итого к оплате: {totalSum}</H3>
           <div className={styles.btnOrderContainer}>
-            <Button size="sm" onClick={handleTodoOrder} className={styles.orderBtn}>{loading ? <img src={loader} className={styles.imgLoader}/> : 'Оформить'}</Button>
+            <Button size="sm" onClick={handleTodoOrder} className={styles.orderBtn} disable={Boolean(!basket.length)}>{loading ? <img src={loader} className={styles.imgLoader}/> : 'Оформить'}</Button>
             <CSSTransition
               in={successRequest}
               timeout={300}

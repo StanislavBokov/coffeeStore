@@ -1,0 +1,49 @@
+@import '../../../assets/styles/mixins';
+@import '../../../assets/styles/component-variables/color-constants';
+
+.ordersContainer {
+
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+    // justify-content: center;
+    .itemOrderContainer {
+        // border:1px solid black;
+        width: 450px;
+        // background-color: rgb(248, 253, 242);
+    }
+    .orderData {
+        // margin-bottom: spacing(2);
+        padding: spacing(1);
+
+        p {
+            margin-bottom: spacing(0.5);
+        }
+    }
+    .showLotsBtn {
+        margin-top: spacing(2);
+        border-bottom: 1px solid $colorRed;
+        padding: spacing(1) !important;
+
+        &:hover {
+            text-decoration: none !important;
+        }
+    }
+    .orderDelivered {
+        padding: spacing(1) !important;
+    }
+    .lotOrder { 
+
+        // margin-top: spacing(2);
+
+        .lotOrderItem {
+            // position: absolute;
+            // top:155px;
+            margin-bottom: spacing(2);
+            padding: spacing(1);
+            border-bottom: 1px solid $colorRed;;
+            border-left: 1px solid $colorRed;
+            // background-color: rgb(252, 241, 241);
+        }
+    }
+}

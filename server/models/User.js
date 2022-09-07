@@ -11,7 +11,7 @@ const schema = new Schema({
            valueDelivery: { type: String },
            valuePayment: { type: String },
            comment: { type: String },
-           lots: []
+           lots: [],
        }
    ]
 }, {

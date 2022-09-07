@@ -8,3 +8,5 @@ export const upDateLotAction = createAction<any>(actionsTypes.UPDATE_LOT);
 export const addLotAction = createAction<IAddLotAction>(actionsTypes.ADD_LOT);
 export const uploadedFilesAction = createAction<any>(actionsTypes.UPLOADED_FILES);
 export const setAvailabilityLotAction = createAction<string>(actionsTypes.SET_AVAILABILITY_LOT);
+export const fetchAllOrdersAction = createAction(actionsTypes.FETCH_ALL_ORDERS);
+export const deliveredOrderAction = createAction<{ id: string, userId: string }>(actionsTypes.DELIVERED_ORDER);

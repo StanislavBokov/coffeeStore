@@ -4,7 +4,8 @@ export type orderState = {
     valueDelivery: string,
     valuePayment: string,
     comment: string,
-    lots: any
+    lots: any,
+    // user?: any
 }
 
 export type UserState = {

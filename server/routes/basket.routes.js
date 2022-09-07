@@ -9,7 +9,7 @@ router.get('/:userId', auth, async (req, res) => {
     
     try {
         const basket = await Basket.findOne({ user: userId })
-        console.log(basket);
+   
         
         res.status(200).send(basket)
     } catch (error) {

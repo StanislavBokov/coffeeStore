@@ -13,6 +13,8 @@ import addLotSaga from './admin/saga/addLot'
 import uploadedFilesSaga from "./admin/saga/uploadFiles";
 import setAvailabilityLotSaga from "./admin/saga/setAvailabilityLot";
 import todoOrderSaga from "./user/sagas/todoOrder";
+import fetchAllOrdersSaga from "./admin/saga/fetchAllOrders";
+import deliveredOrderSaga from "./admin/saga/deliveredOrder";
 
 export default function* rootSaga() {
   yield fork(buyCoffeeSaga);
@@ -28,4 +30,6 @@ export default function* rootSaga() {
   yield fork(uploadedFilesSaga);
   yield fork(setAvailabilityLotSaga);
   yield fork(todoOrderSaga);
+  yield fork(fetchAllOrdersSaga);
+  yield fork(deliveredOrderSaga);
 }
