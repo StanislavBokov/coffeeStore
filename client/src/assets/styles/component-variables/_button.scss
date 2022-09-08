@@ -8,7 +8,7 @@ $buttonColorsDefault: (
     'button-filled-default-border': $colorBlack,
     'button-filled-hover-border': $colorRed5,
     'button-filled-active-border': $colorRed5,
-    'button-filled-disabled-border': $colorBlack,
+    'button-filled-disabled-border': $colorGray20,
     
 
     // background
@@ -31,14 +31,14 @@ $buttonColorsDefault: (
     'button-outlined-default-border': $colorBlack,
     'button-outlined-hover-border': $colorRed5,
     'button-outlined-active-border': $colorRed10,
-    'button-outlined-disabled-border': $colorBlack,
+    'button-outlined-disabled-border': $colorGray20,
 
     // color
     
     'button-outlined-default-color': $colorBlack,
     'button-outlined-hover-color': $colorBlack5,
     'button-outlined-active-color': $colorDarkGrey,
-    'button-outlined-disabled-color': $colorBlack,
+    'button-outlined-disabled-color': $colorGray20,
 
    
 )

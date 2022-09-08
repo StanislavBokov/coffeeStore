@@ -1,12 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AdminState } from '../../types';
+import { AdminState, ItemOrder } from '../../types';
 const initialState:AdminState = {
   images: [],
   uploaded: false,
   loading: false,
   successReqest: false,
-  successRemove: false
+  successRemove: false,
+  allOrders: []
 };
 
 export const AdminReducer = createSlice({
@@ -33,8 +34,12 @@ export const AdminReducer = createSlice({
     successRemove: (state, action: PayloadAction<boolean>) => ({
       ...state,
       successRemove: action.payload
+    }),
+    fetchSuccessAllOrders: (state, action: PayloadAction<ItemOrder[]>) => ({
+      ...state,
+      allOrders: action.payload
     })
   }
 });
-export const { uploadFies, uploadedFalse, loading, successReqest, successRemove } = AdminReducer.actions;
+export const { uploadFies, uploadedFalse, loading, successReqest, successRemove, fetchSuccessAllOrders } = AdminReducer.actions;
 export default AdminReducer.reducer;
