@@ -10,7 +10,8 @@ const schema = new Schema({
             lots: [],
             email: { type: String },
             userId: { type: String },
-            _id: { type: String }
+            _id: { type: String },
+            isOpen: { type: Boolean }
             
         }
     ]

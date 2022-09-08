@@ -10,7 +10,8 @@ export type ItemOrder = {
     comment: string,
     lots: ItemBasket[],
     _id: string,
-    userId: string
+    userId: string,
+    isOpen: boolean
 }
 export interface AdminState {
     images: string[],

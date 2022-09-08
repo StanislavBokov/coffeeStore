@@ -7,6 +7,8 @@ export function* fetchAllOrdersWorker() {
   try {
 
     const { data } = yield axios.get(`http://localhost:5566/api/orders`);
+    console.log(data);
+    
     yield put(fetchSuccessAllOrders(data[0].orders))
     
   } catch (err) {
