@@ -37,7 +37,8 @@ router.post('/',  async (req, res) => {
             valuePayment: newOrder.valuePayment,
             comment: newOrder.comment,
             lots: newOrder.lots,
-            userId: id
+            userId: id,
+            isOpen: false
         })
         
         orders[0].save()

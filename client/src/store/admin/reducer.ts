@@ -38,8 +38,13 @@ export const AdminReducer = createSlice({
     fetchSuccessAllOrders: (state, action: PayloadAction<ItemOrder[]>) => ({
       ...state,
       allOrders: action.payload
-    })
+    }),
+    showOrderLots: (state, action: PayloadAction<string>) => {
+      const selectOrder = state.allOrders.find((order) => order._id === action.payload)
+      selectOrder!.isOpen = !selectOrder!.isOpen
+      
+    }
   }
 });
-export const { uploadFies, uploadedFalse, loading, successReqest, successRemove, fetchSuccessAllOrders } = AdminReducer.actions;
+export const { uploadFies, uploadedFalse, loading, successReqest, successRemove, fetchSuccessAllOrders, showOrderLots } = AdminReducer.actions;
 export default AdminReducer.reducer;
