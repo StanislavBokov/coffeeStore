@@ -33,7 +33,7 @@ router.delete('/',  async (req, res) => {
      
         res.status(200).send(coffee)
     } catch (error) {
-        res.status(500).json({
+        res.status(500).json({  
             message: 'На сервере произошла ошибка'
         })
     }
