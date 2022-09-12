@@ -22,8 +22,8 @@ export const RouteManager: FC = () => {
       <Route path="/login" element={ isLoggedIn ? <Navigate to="/" /> : <Login />} />
       <Route path="/basket" element={<Basket />} />
       <Route path="/:id" element={<AboutCoffeeItem />} />
-      <Route path="/panelAdmin" element={auth?.isAdmin === true ? <PanelAdmin /> : <H1 align="center">Нет доступа</H1>} />
-      <Route path="/panelAdmin/orders" element={auth?.isAdmin === true ? <Orders /> : <H1 align="center">Нет доступа</H1>} />
+      <Route path="/panelAdmin" element={auth?.isAdmin === "true" ? <PanelAdmin /> : <H1 align="center">Нет доступа</H1>} />
+      <Route path="/panelAdmin/orders" element={auth?.isAdmin === "true" ? <Orders /> : <H1 align="center">Нет доступа</H1>} />
 
       <Route 
         path={routes.home.root} 
