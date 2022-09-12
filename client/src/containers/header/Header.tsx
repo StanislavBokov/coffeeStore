@@ -24,7 +24,7 @@ export const Header:FC = () => {
           {/* <img src={logo} alt="logo" className={styles.mainLogo}/> */}
           <Link className={styles.links} to="/">Домой</Link>
           <Link className={styles.links} to="/basket">Корзина</Link>
-          {auth?.isAdmin && <Link className={styles.links} to="panelAdmin">Панель aдминистратора</Link>}
+          {auth?.isAdmin === 'true' && <Link className={styles.links} to="panelAdmin">Панель aдминистратора</Link>}
         </div>
         <div>
         

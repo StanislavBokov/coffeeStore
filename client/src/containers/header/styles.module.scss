@@ -11,8 +11,10 @@
         // padding:spacing(0,2)
     }
     .info {
-        @include flexbox(space-between);
-        width: 500px;
+        // @include flexbox(space-between);
+        // width: 500px;
+        display: flex;
+        gap:60px;
         .links {
             &:hover {
                 text-decoration: underline;

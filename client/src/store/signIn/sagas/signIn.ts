@@ -22,7 +22,7 @@ export function* signInUserWorker({ payload }: ReturnType<typeof signInAction>) 
       expiresIn:data.expiresIn
     });
     localStorageService.setIsAdmin(data.isAdmin);
-    yield put(authRequestSuccess({ userId: data.userId, isAdmin: data.isAdmin }));
+    yield put(authRequestSuccess({ userId: data.userId, isAdmin: (data.isAdmin).toString() }));
     
     yield put(errorsignIn(''));
     yield put(setModalRegister(false));
