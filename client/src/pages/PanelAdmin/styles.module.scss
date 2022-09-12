@@ -1,7 +1,16 @@
 @import '../../assets/styles/mixins';
+@import  '../../assets/styles/color-themes';
 
 .PanelAdmin {
     @include centered();
     @include flexbox(space-between, start);
-    // border: 1px solid red;
+    .textLink {
+        margin-top: spacing(10);
+        margin-left: spacing(2);
+  
+        .linkOrder:hover {
+            text-decoration: underline;
+        }
+    }
+ 
 }

@@ -2,7 +2,7 @@
 @import '../../../assets/styles/component-variables/color-constants';
 
 .ordersContainer {
-
+    @include centered();
     display: flex;
     gap: 50px;
     flex-wrap: wrap;

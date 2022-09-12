@@ -1,4 +1,5 @@
-import { FC, useState } from 'react';
+import { FC, useEffect } from 'react';
+import { fetchAllOrdersAction } from '../../../store/admin/actions';
 import { Text, H3, Button } from '../../../components';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
 import { useDispatch } from 'react-redux';
@@ -8,9 +9,13 @@ import styles from './styles.module.scss';
 
 export const Orders:FC = () => {
   const dispatch = useDispatch()
+  // useEffect(() => {
+  //   dispatch(fetchAllOrdersAction())
+  // }, [])
   const { allOrders } = useTypedSelector((state) => state.admin)
   const { coffee } = useTypedSelector((state) => state.coffee)
-
+  console.log(`allOrders: ${allOrders}`);
+  
   const handleShowLOts = (_id: string) => {
     dispatch(showOrderLots(_id))  
   }
