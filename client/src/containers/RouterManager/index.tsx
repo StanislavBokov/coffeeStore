@@ -1,7 +1,7 @@
 import { FC, lazy } from 'react';
 import { routes } from '../../appConstants';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import {  Basket, AboutCoffeeItem, PanelAdmin } from '../../pages';
+import {  Basket, AboutCoffeeItem, PanelAdmin, Orders } from '../../pages';
 import { useSelector, RootStateOrAny } from 'react-redux';
 import { Login } from '../../pages';
 
@@ -22,6 +22,8 @@ export const RouteManager: FC = () => {
       <Route path="/basket" element={<Basket />} />
       <Route path="/:id" element={<AboutCoffeeItem />} />
       <Route path="/panelAdmin" element={<PanelAdmin />} />
+      <Route path="/panelAdmin/orders" element={<Orders />} />
+
       <Route 
         path={routes.home.root} 
         element={ isLoggedIn ? <Home /> : <Navigate to="/login" /> }

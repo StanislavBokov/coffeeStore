@@ -36,6 +36,7 @@ export const RemoveCoffeeItem:FC = () => {
         <CSSTransition in={openModal} timeout={200} classNames="modal" unmountOnExit>
           <ModalRemoveLot id={id} setOpenModal={setOpenModal} isAvailable={isAvailable} />
         </CSSTransition>
+        
       </div>
     </div>
   )
