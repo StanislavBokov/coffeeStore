@@ -9,7 +9,16 @@
 
     gap: spacing(10);
     .column1 {
-        max-width: 400px;   
+        max-width: 400px;
+        position: relative;
+        
+        .inputErrorMessage {
+            position: absolute;
+            top: 440px
+        }
+        // .error {
+        //     border-color: var(--input-error-border-color);
+        // }
     }
     .column2 {
         min-width: 420px;  
@@ -18,6 +27,11 @@
             @include flexbox(space-between, center);
             margin-bottom: spacing(10);
             position: relative;
+
+            .fileErrorMessage {
+                position: absolute;
+                top: -40px
+            }
 
             .listContainer {
                 position: absolute;
@@ -50,6 +64,7 @@
 .selectsContainer {
     min-width: 400px;
     padding-top: spacing(4.5);
+
 }
 
 .hidden {

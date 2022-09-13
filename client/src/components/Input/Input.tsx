@@ -12,7 +12,7 @@ interface InputProops {
     value?: string,
     name: string,
     placeholder?: string;
-    error?: string,
+    error?: string | boolean,
     onChange?: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
     onBlur?: (event: any) => void;
     textArea?: boolean,
