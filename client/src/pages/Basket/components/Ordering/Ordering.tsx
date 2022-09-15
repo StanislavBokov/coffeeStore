@@ -24,15 +24,6 @@ export const Ordering:FC<OrderingProps> = ({ basket, auth, orders, loading, succ
     address: { value: '', isBlur: false },
     comment: { value: '', isBlur: false }
   })
-  // const [errorAddress, setErrorAddress] = useState('')
-  // useEffect(() => {
-  //   if(!valueData.address.value.length) {
-  //     setErrorAddress('Feild address is required')
-  //   } else {
-  //     setErrorAddress('')
-  //   }
-    
-  // },[valueData.address])
   const [valueDelivery, setValueDelivery] = useState("СДЭК");
   const [valuePayment, setValuePayment] = useState("Картой онлайн");
 

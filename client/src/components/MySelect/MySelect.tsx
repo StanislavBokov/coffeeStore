@@ -2,7 +2,7 @@
 import React, { FC, useState } from "react";
 import styles from './styles.module.scss';
 import { IOptions } from "../../types";
-import { SortBy } from "../../containers";
+import { SortBy } from "../../pages/Home";
 import Select from 'react-select';
 
 interface MySelectProps {

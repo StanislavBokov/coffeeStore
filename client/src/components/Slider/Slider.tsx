@@ -13,9 +13,8 @@ interface SliderProps {
   images: string[],
   id: string,
   className?: string,
-  AboutCoffeeItemPage?: boolean,
 }
-export const Slider:FC<SliderProps> = ({ images, id, className, AboutCoffeeItemPage }) => {
+export const Slider:FC<SliderProps> = ({ images, id, className }) => {
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
   const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
@@ -29,9 +28,9 @@ export const Slider:FC<SliderProps> = ({ images, id, className, AboutCoffeeItemP
           prevEl: navigationPrevRef.current,
           nextEl: navigationNextRef.current
         }}
-        className={styles.swiperWrapper}
+        className={cn(styles.swiperWrapper)}
       >
-        {/* {console.log(prevEl)} */}
+
         {images.map((img, index) => (
           <SwiperSlide  className={styles.SwiperSlide} key={index}>
             <Link to={`/${id}`}>
@@ -39,12 +38,14 @@ export const Slider:FC<SliderProps> = ({ images, id, className, AboutCoffeeItemP
             </Link>
           </SwiperSlide> 
         ))}
+  
         <Button variant="text" onClick={() => swiperInstance!.slidePrev()} size="noSize">
-          <img src={chevron} className={cn(styles.chevrvons, styles.chevronLeft, { [styles.chevronLeftAboutPage]: AboutCoffeeItemPage })}/>
+          <img src={chevron} className={cn(styles.chevrvons, styles.chevronLeft)}/>
         </Button>
         <Button variant="text" onClick={() => swiperInstance!.slideNext()} size="noSize">
-          <img src={chevron} className={cn(styles.chevrvons, styles.chevronRight, { [styles.chevronRightAboutPage]: AboutCoffeeItemPage })}/>
-        </Button> 
+          <img src={chevron} className={cn(styles.chevrvons, styles.chevronRight)}/>
+        </Button>
+    
       </Swiper>
 
     </>

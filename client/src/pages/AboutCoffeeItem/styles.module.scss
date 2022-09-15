@@ -1,51 +1,58 @@
 @import '../../assets/styles/mixins';
 
 .AboutCoffeeItem {
-   width: 100%;
-    .wrapper {
+//    width: 100%;
+
+    // .wrapper {
         @include centered();
-        display: grid;
-        grid-template-columns: 50% 50%;
+        display: flex;
+        align-items: start;
+        gap: 80px;
+        // @include flexbox(space-between, start);
+        // border: 1px solid red;
         margin-top: spacing(15);
 
-        .slider {
-            max-width: 500px !important;
-        }
-        .description {
-            margin: spacing(6,0) !important;
-        }
-        .progressBarWrapper {
-            @include flexbox(space-between);
-
-            .barItem {
-                width: 300px;
-                height: 7px;
-            }
-        }
-        .wrapperSelectAndAmount {
-            @include flexbox(space-between);
-            max-width: 250px;
-            margin: spacing(6,0) !important;
-        }
-        .wrapperPackAndBuy {
-            @include flexbox(space-between);
-            max-width: 350px;
+        .img {
+                height: 400px;
+                // border: 1px solid red;
             
-            .widthContainer {
-                width: 150px;
+        }
+        .aboutCoffee {
+            max-width: 940px;
+            line-height: 30px;
+            margin: spacing(4, 0);
+            // border: 1px solid red
+        }
+        .divider {
+            border-top: 1px solid black;
+            margin-bottom: spacing(6)
+        }
+        .containerOrder {
+            height: 110px;
+            // border: 1px solid red;
+            @include flexbox(start, end);
+            gap:50px;
+            .column1 {
+                .selectContainer {
+                    max-width: 150px;
+                }
+            }
+            .column2 {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                // border: 1px solid red;
+                height: 109px;
+
+                .changeAmountContainer {
+                    padding-bottom: 5px;
+                }
             }
         }
-    }
-    
-    .infoWrapper {
-        @include centered();
-        max-width: 1050px;
+     
+     
+       
 
-        .wrapperBtn {
-            @include flexbox(space-between);
-            width: 450px;
-            margin-bottom: spacing(6);
-        }
-    }
   
 }

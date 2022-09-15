@@ -31,9 +31,6 @@ export const Description:FC<Description> = ({ coffeeItem }) => {
           <H3>{coffeeItem.grade}</H3>
         </div>
       </div>
-      <div>
-        <Text>{coffeeItem.aboutCoffee}</Text>
-      </div>
     </div>
   );
 };
