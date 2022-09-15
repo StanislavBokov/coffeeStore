@@ -3,7 +3,8 @@ export type DataTextInput = {
     country: string,
     description: string,
     growthHeight: string,
-    screen: string
+    screen: string,
+    aboutCoffee: string
 }
 
 export type DataRangeInput = {

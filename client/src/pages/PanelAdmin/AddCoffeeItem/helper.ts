@@ -5,7 +5,8 @@ export const inputHelper = [
   { name: 'country', id: '2', placeHolder: 'Country', textArea: false  },
   { name: 'growthHeight', id: '3', placeHolder: 'Growing height', textArea: false  },
   { name: 'screen', id: '4', placeHolder: 'Screen', textArea: false  },
-  { name: 'description', id: '5', placeHolder: 'Description', textArea: true  }
+  { name: 'description', id: '5', placeHolder: 'Description', textArea: true  },
+  { name: 'aboutCoffee', id: '6', placeHolder: 'About Lot', textArea: true  }
   
 ]
 export const fermentationSelect = [
@@ -89,6 +90,20 @@ export const inputErrorMessage = (data:DataTextInput, setErrors: React.Dispatch<
       }
       if (data[fieldName].length > 60) {
         setErrors({ field: fieldName, message:"Max length 60 symbols" })
+        return
+      }
+      setErrors({ field: '', message: '' })
+    }
+    if(fieldName === 'aboutCoffee') {
+      if(!data[fieldName]) {
+        setErrors({ field: fieldName, message: "About Lot is required" })
+        return
+      }if (data[fieldName].length < 100) {
+        setErrors({ field: fieldName, message:"Min length 100 symbols" })
+        return
+      }
+      if (data[fieldName].length > 320) {
+        setErrors({ field: fieldName, message:"Max length 320 symbols" })
         return
       }
       setErrors({ field: '', message: '' })
