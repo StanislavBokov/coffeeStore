@@ -9,18 +9,20 @@ import styles from './styles.module.scss';
 
 export const Orders:FC = () => {
   const dispatch = useDispatch()
-  // useEffect(() => {
-  //   dispatch(fetchAllOrdersAction())
-  // }, [])
+
   const { allOrders } = useTypedSelector((state) => state.admin)
   const { coffee } = useTypedSelector((state) => state.coffee)
-  console.log(`allOrders: ${allOrders}`);
-  
+
   const handleShowLOts = (_id: string) => {
     dispatch(showOrderLots(_id))  
   }
   const handleDeliveredOrder = (id: string, userId: string) => {
     dispatch(deliveredOrderAction({ id, userId }))
+  }
+  if(!allOrders.length) {
+    return (
+      <H3 align="center">Нет заказов</H3>
+    )
   }
   return (
     <div className={styles.ordersContainer}>
