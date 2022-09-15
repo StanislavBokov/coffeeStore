@@ -18,7 +18,8 @@ export const AddCoffeeItem:FC = () => {
     country: '',
     growthHeight: '',
     screen: '',
-    description: ''
+    description: '',
+    aboutCoffee: ''
   });    
 
   const [fermentation, setSelectFermentation ] = useState('') 
@@ -101,7 +102,8 @@ export const AddCoffeeItem:FC = () => {
         country: '',
         growthHeight: '',
         screen: '',
-        description: ''
+        description: '',
+        aboutCoffee: ''
       })
       setSelectFermentation('')
       setSelectDegreeRoast('')

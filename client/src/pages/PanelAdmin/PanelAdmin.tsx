@@ -2,7 +2,7 @@ import { FC, useEffect } from 'react';
 import styles from './styles.module.scss';
 import { Button, Text } from '../../components';
 import { Link } from 'react-router-dom';
-import { Orders, AddCoffeeItem, Coffee, RemoveCoffeeItem } from '.';
+import { Orders, AddCoffeeItem, RemoveCoffeeItem } from '.';
 import { fetchAllOrdersAction } from '../../store/admin/actions';
 import { useDispatch } from 'react-redux';
 export const PanelAdmin:FC = () => {
