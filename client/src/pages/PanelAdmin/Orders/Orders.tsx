@@ -1,5 +1,4 @@
-import { FC, useEffect } from 'react';
-import { fetchAllOrdersAction } from '../../../store/admin/actions';
+import { FC } from 'react';
 import { Text, H3, Button } from '../../../components';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
 import { useDispatch } from 'react-redux';

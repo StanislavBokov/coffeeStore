@@ -8,10 +8,10 @@ interface PackVariable {
     maxPrice: number,
     grams: number,
     setGrams: React.Dispatch<React.SetStateAction<number>>
-    AboutCoffeeItemPage?: boolean,
+    // AboutCoffeeItemPage?: boolean,
     className?: string
 }
-export const PackVariable:FC<PackVariable> = ({ minPrice, maxPrice, grams, setGrams, AboutCoffeeItemPage, className }) => {
+export const PackVariable:FC<PackVariable> = ({ minPrice, maxPrice, grams, setGrams, className }) => {
   const packVariable = (grams:number) => {
     setGrams(grams);
   };
@@ -19,12 +19,12 @@ export const PackVariable:FC<PackVariable> = ({ minPrice, maxPrice, grams, setGr
   return (
     <div className={cn(styles.packVariableWrapper, className)}>
       <Button variant="text" onClick={()=>packVariable(250)} size="noSize" >
-        <Text align="center" color="secondrary" size={AboutCoffeeItemPage ? "lg" : "md"} >250 г</Text>
-        <Text align="center" color="secondrary" size={AboutCoffeeItemPage ? "lg" : "md"} className={cn(styles.btnPrice, { [styles.selectedPrice]: grams === 250 })}>{minPrice} &#8381;</Text>
+        <Text align="center" color="secondrary"  className={cn({ [styles.selectedPrice]: grams === 250 })}>250 г</Text>
+        <Text align="center" color="secondrary"  className={cn({ [styles.selectedPrice]: grams === 250 })}>{minPrice} &#8381;</Text>
       </Button>
       <Button variant="text" onClick={()=>packVariable(1000)} size="noSize">
-        <Text align="center" color="secondrary" size={AboutCoffeeItemPage ? "lg" : "md"}>1000 г</Text>
-        <Text align="center" color="secondrary" size={AboutCoffeeItemPage ? "lg" : "md"} className={cn(styles.btnPrice, { [styles.selectedPrice]: grams === 1000 })}>{maxPrice} &#8381;</Text>
+        <Text align="center" color="secondrary" className={cn({ [styles.selectedPrice]: grams === 1000 })}>1000 г</Text>
+        <Text align="center" color="secondrary"  className={cn({ [styles.selectedPrice]: grams === 1000 })}>{maxPrice} &#8381;</Text>
       </Button>
     </div> 
   );

@@ -12,9 +12,17 @@
         display: grid;
         grid-template-columns: 30% 30% 25% 0%;
     }
-    .img {
-        width: 150px;
+    .imgContainer {
+        // border: 1px solid black;
+        width: 200px;
+        text-align: center;
+        .img {
+            // max-width: 150px;
+            height: 150px;
+            // border: 1px solid red;
+        }
     }
+  
     .infoText {
         margin-bottom: spacing(0.5);
         max-width: 100px;

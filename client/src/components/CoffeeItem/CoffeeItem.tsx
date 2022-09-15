@@ -67,10 +67,13 @@ export const CoffeeItem:FC<CoffeeItemProps> = ({
             setValue={setValueSelect}
             className="coffeeItem-select"
           />
-          <ChangeAmount 
-            valueAmount={valueAmount}
-            setValueAmount={setValueAmount}
-          />
+          <div className={styles.changeAmountContainer}>
+            <ChangeAmount 
+              valueAmount={valueAmount}
+              setValueAmount={setValueAmount}
+            />
+          </div>
+      
         </div>
         <div className={styles.wrapperPackAndBuy}>
           <PackVariable 
@@ -82,7 +85,6 @@ export const CoffeeItem:FC<CoffeeItemProps> = ({
           <TodoOrder 
             id={id}
             basket={basket} 
-            // isModalBought={isModalBought}
             selectedValue={{ valueAmount, valueSelect, valueGrams }}
           />   
         </div> 

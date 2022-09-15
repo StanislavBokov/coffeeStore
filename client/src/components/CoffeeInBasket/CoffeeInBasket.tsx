@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Text, Button } from '..';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
-import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { removeCoffeeItemAction } from '../../store/basket/actions';
 import styles from './styles.module.scss';
 
@@ -17,12 +17,11 @@ export const CoffeeInBasket:FC<CoffeeInBasketProps> = ({ userId, _id, idProduct,
   const dispatch = useDispatch();
 
   const { coffee } = useTypedSelector((state) => state.coffee);
-  console.log('df');
   
   const coffeeItem = coffee.find((item) => item._id === idProduct);
   
-  const img = grams === 250 ? coffeeItem?.images[0] : coffeeItem?.images[1];
-
+  // const img = grams === 250 ? coffeeItem?.images[0] : coffeeItem?.images[1];
+  const img = grams === 250 ? coffeeItem?.images[0] : coffeeItem?.images.length === 1 ? coffeeItem?.images[0] :  coffeeItem?.images[1];
   const finalPrice = grams === 250 ? coffeeItem?.minPrice! *amount : coffeeItem?.maxPrice!*amount;
 
   const deleteCoffee = () => {
@@ -30,7 +29,10 @@ export const CoffeeInBasket:FC<CoffeeInBasketProps> = ({ userId, _id, idProduct,
   };
   return (
     <div className={styles.CoffeeInBasket}>
-      <img src={img} alt="image lot" className={styles.img} />
+      <div className={styles.imgContainer}>
+        <img src={img} alt="image lot" className={styles.img} />
+      </div>
+     
       <div className={styles.gridContainer}>
         <div>
           <Text className={styles.infoText}>{coffeeItem?.name}</Text>

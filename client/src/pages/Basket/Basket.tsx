@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { FC } from 'react';
+import { FC, useMemo } from 'react';
 import { H2, Button, CoffeeInBasket } from '../../components';
 import styles from './styles.module.scss';
 import { Ordering } from './components/Ordering/Ordering';
@@ -12,7 +12,7 @@ export const Basket:FC = () => {
 
   const { auth, orders, loading, successRequest }  = useSelector((state:RootStateOrAny) => state.user); // fix it
   const { basket } = useTypedSelector((state) => state.basket);
-
+  
   return (
     <div className={styles.Basket}>
       <Ordering 

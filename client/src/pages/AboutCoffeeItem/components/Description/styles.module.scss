@@ -1,11 +1,12 @@
 @import '../../../../assets/styles/mixins';
 .info {
-    @include flexbox(start);
-    margin-bottom: spacing(6) !important;
+    @include flexbox(start,end);
+    margin-bottom: spacing(8);
+    // border: 1px solid red;
     .roasing {
-        border:1px solid black;
-        max-width: 400px ;
-        padding: spacing(3,3,7);
+        border-right:1px solid black;
+        // max-width: 400px ;
+        padding-right: spacing(4);
 
         .fairImg {
             width: 45px;
@@ -17,12 +18,12 @@
         }
     }
     .seedInfoext {
-        @include flexbox(space-between,space-between,column);
-        border:1px solid black;
-        max-width: 400px;
-        height: 217px;
-        padding: spacing(3); 
-        margin-left: -2px;
+        // @include flexbox(space-between,space-between,column);
+        border-right:1px solid black;
+        max-width: 420px;
+        // height: 217px;
+        padding: spacing(0,4); 
+        // margin-left: -2px;
 
         .seedImg {
             width: 45px;
@@ -30,12 +31,12 @@
         }
     }
     .greed {
-        @include flexbox(center, center, column);
-        border:1px solid black;
-        max-width: 200px;
-        height: 217px;
-        padding: spacing(3);
-        margin-left: -1px;
+        @include flexbox(start, center, column);
+        // border:1px solid black;
+        max-width: 130px;
+        // min-height: 300px;
+        padding-left: spacing(4);
+        // margin-left: -1px;
        
         & > p {
             margin-bottom: spacing(2);
