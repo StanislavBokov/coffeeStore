@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-const initialState: { errorMessage: string, successRegister: boolean } = {
+const initialState: { errorMessage: string, successRegister: boolean, loading: boolean } = {
   errorMessage: '',
-  successRegister: false
-  // userId: ''
+  successRegister: false,
+  loading: false
 };
 
 export const RegisterReducer = createSlice({
@@ -15,9 +15,12 @@ export const RegisterReducer = createSlice({
     }),
     successSignIn: (state, action:PayloadAction<boolean>) => ({
       ...state, successRegister: action.payload
+    }),
+    isLoading: (state, action: PayloadAction<boolean>) => ({
+      ...state, loading: action.payload
     })
   }
 });
 
-export const { errorsignIn, successSignIn } = RegisterReducer.actions;
+export const { errorsignIn, successSignIn, isLoading } = RegisterReducer.actions;
 export default RegisterReducer.reducer;

@@ -3,31 +3,44 @@ import { H3, Input, Button, Text } from '..';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { CSSTransition } from 'react-transition-group';
-import useInput from '../../hooks/useInput';
 import styles from './styles.module.scss';
 import { registerUserAction } from '../../store/register/actions';
 import { loader } from '../../assets/icons';
-import { validateScheme } from './registration.helper';
+import { validateScheme, inputHelper } from './registration.helper';
 
 export const Registration: FC = () => {
- 
+  type DataType  = {
+    [key: string]: { value: string, isBlur:boolean }
+  }
   const dispatch = useDispatch();
-  const userName = useInput('');
-  const email = useInput('');
 
-  const password = useInput('');
-  const passwordConfirmation = useInput('');
+  const { errorMessage, loading } = useTypedSelector((state) => state.register);
 
-  const { errorMessage, successRegister, loading } = useTypedSelector((state) => state.register);
+  const [errors, setErrors] = useState<{[key:string]: string}>({});
 
-  type TypeErrors = { 
-    [key:string]: string
-   }
+  const [data, setData] = useState<DataType>({
+    name: { value: '', isBlur: false },
+    numberPhone: { value: '', isBlur: false },
+    email: { value: '', isBlur: false },
+    password: { value: '', isBlur: false }
+  });
 
-  const [errors, setErrors] = useState<TypeErrors>({});
+  const handleChange = ({ target }: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {       
+    setData((prevState:DataType) => ({
+      ...prevState,
+      [target.name]: { ...data[target.name], value: target.value  }
+    }));
+  };
 
+  const handleBlur = ({ target }: React.ChangeEvent<HTMLInputElement>) => {  
+    setData((prevState:DataType)  => ({
+      ...prevState,
+      [target.name]: { ...data[target.name], isBlur: true  }
+    }));
+  };
+  
   const validate = () => {
-    validateScheme.validate({ email:email.value, password: password.value, name: userName.value, passwordConfirmation: passwordConfirmation.value })
+    validateScheme.validate({ name:data.name.value, numberPhone:data.numberPhone.value, email:data.email.value, password:data.password.value })
       .then(() => setErrors({}))
       .catch((error) => setErrors({ [error.path]: error.message }));
     return Object.keys(errors).length === 0;
@@ -35,44 +48,49 @@ export const Registration: FC = () => {
 
   useEffect(() => {
     validate();
-  }, [email.value, password.value, userName.value, passwordConfirmation.value]);
-
+  }, [data]);
+  
   const signUpHandle = () => {
-    const isValid = validate();
-    if(!isValid) return;
-    dispatch(registerUserAction({ email: email.value, password: password.value, name: userName.value }));    
+    dispatch(registerUserAction({ email: data.email.value, password: data.password.value, name: data.name.value, numberPhone: data.numberPhone.value }));    
   };
 
   return (
     <div className={styles.Registration}>
       <div className={styles.wrapper}>
         <div className={styles.mainDataWrapper}>
-          <H3 className={styles.titles}>Основные данные</H3>
-          <CSSTransition
-            in={successRegister}
-            timeout={300}
-            unmountOnExit
-            classNames="message"
-          >
-            <Text size="lg" color="success" className={styles.message}>Вы успешно зарегестрированы</Text>
-          </CSSTransition>
-  
+          <H3 className={styles.titles}>Регистрация</H3>
           <CSSTransition
             in={Boolean(errorMessage)}
             timeout={300}
             unmountOnExit
             classNames="message"
           >
-            <Text size="lg" color="error" className={styles.message}>{errorMessage}</Text>
+            <Text color="error" className={styles.message}>{errorMessage}</Text>
           </CSSTransition>
-  
-          <Input error={errors.name} name="username" {...userName} placeholder="Имя" /><br />
-          <Input error={errors.email} name="email" {...email} placeholder="E-mail" /><br />
-          <H3 className={styles.titles}>Ваш пароль</H3>
-   
-          <Input error={errors.password} name="password" {...password} placeholder="Пароль" type="password" /><br />
-          <Input error={errors.passwordConfirmation}  name="passwordConfirmation" {...passwordConfirmation} placeholder="Подтвердить пароль" type="password" /><br />
-          <Button className={styles.signUpBtn} onClick={signUpHandle}>{loading ? <img src={loader} className={styles.imgLoader}/> : 'Зарегестрироваться'}</Button>
+          {inputHelper.map(({ id, name, placeholder }) => (
+            <>
+              <Input 
+                key={id}
+                id={id} 
+                name={name}
+                placeholder={placeholder} 
+                onChange={handleChange} 
+                value={data[name].value}
+                error={errors[name]}
+                blur={data[name].isBlur}
+                onBlur={handleBlur}
+                type={name === 'password' ? name : 'text'}
+              />
+              {data[name].isBlur && <Text className={styles.errorMessage} color="error">{errors[name]}</Text>}             
+            </>
+          ))}
+          <Button 
+            className={styles.signUpBtn}
+            onClick={signUpHandle}
+            disable={ Object.keys(errors).length !== 0}
+          >
+            {loading ? <img src={loader} className={styles.imgLoader}/> : 'Зарегестрироваться'}
+          </Button>
         </div>
       </div>
     </div>

@@ -1,0 +1,33 @@
+@import '../../../../assets/styles/mixins';
+
+.orderingWrapper {
+    max-width:400px;
+
+    .mainTitle {
+        margin-bottom: spacing(2);
+    }
+    .titlesOrder {
+        margin: spacing(2, 0);
+    }
+    .textArea {
+        margin-top: spacing(3);
+    }
+    .btnOrderContainer  {
+        position: relative;
+        .orderBtn {
+            min-width: 140px;
+            max-height: 45px;
+            margin-bottom: spacing(4);
+           
+            .imgLoader {
+                width: 20px;         
+            }
+        }
+        .textMessage {
+            position: absolute;
+            top: 55px
+        }
+    }
+
+ 
+}

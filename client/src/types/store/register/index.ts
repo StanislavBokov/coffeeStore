@@ -1,5 +1,6 @@
 export type RegisterDataState = {
-    name?: string,
+    name: string,
+    numberPhone: string,
     email: string,
     password: string,
 }

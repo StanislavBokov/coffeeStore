@@ -1,5 +1,13 @@
 @import '../../assets/styles/mixins';
 
+@keyframes loader {
+    0% {
+        transform: rotate(0deg);
+    } 100% {
+        transform: rotate(360deg);
+    }
+}
+
 .containerForm {
     position: relative;
     .title {
@@ -9,6 +17,9 @@
     .signInBtn {
         margin: spacing(2, 0) !important;
 
+        .imgLoader {
+            animation: loader linear 1.5s infinite;
+        }
     }
     .errorMessage {
         position: absolute;

@@ -6,7 +6,6 @@ import { addLotAction, uploadedFilesAction } from '../../../store/admin/actions'
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
 import { useDispatch } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
-import cn from 'clsx';
 import { DataTextInput, DataRangeInput } from '../../../types';
 
 export const AddCoffeeItem:FC = () => {
@@ -74,30 +73,13 @@ export const AddCoffeeItem:FC = () => {
     setFileUploaded(true)
   }
   
-  // const handleUploadedFile = () => {
-  //   const formData = new FormData();
-  //   for(let i = 0; i < file.length; i++) {
-  //     formData.append(`file${i}`, file[i]);
-  //   }
-  //   dispatch(uploadedFilesAction({ formData }))
-  //   setFile([])
-  //   setFileUploaded(true)
-  // }
-  
   const addLotHandler = async () => {
     const formData = new FormData();
     for(let i = 0; i < file.length; i++) {
       formData.append(`file${i}`, file[i]);
     }
     dispatch(uploadedFilesAction({ formData }))
-    
-    // dispatch(addLotAction({ 
-    //   ...dataTextInput,
-    //   ...dataRangeInput,
-    //   fermentation,
-    //   degreeRoast,
-    //   images
-    // }))
+
   }
   useEffect(() => {
     if(uploaded) {
@@ -174,14 +156,6 @@ export const AddCoffeeItem:FC = () => {
           <div className={styles.btnContainer}>
             <div>
               <Button onClick={handlePick} size="sm">Выбрать файлы</Button>
-              {/* <CSSTransition
-                in={uploaded}
-                timeout={300}
-                unmountOnExit
-                classNames="message"
-              >
-                <Text className={styles.textMessage} color="success">Файлы были загружены</Text>
-              </CSSTransition> */}
               {!fileUploaded && <Text color="error" className={styles.fileErrorMessage}>Выберете и загрузите файлы</Text>}
               <ul className={styles.listContainer}>
                 {file.map((el:any) => (
@@ -191,7 +165,6 @@ export const AddCoffeeItem:FC = () => {
             </div>
        
             <input type="file" onChange={handleChangeFile} name="file" multiple className={styles.hidden} ref={filePicker}/>
-            {/* <Button size="sm" onClick={handleUploadedFile} disable={!file.length}>Загрузить файлы</Button> */}
           </div>
           
           <div className={styles.rangeInputContainer}>

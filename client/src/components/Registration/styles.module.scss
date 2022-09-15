@@ -22,9 +22,13 @@
             // border: 1px solid red;
             // margin-right: spacing(8);
             position: relative;
-
+            .errorMessage {
+                position: absolute;
+                top: 420px;
+                left:10px;
+            }
             .signUpBtn {
-                margin: spacing(4, 0);
+                margin: spacing(6,0,3);
                 // align-self: center;
                 // width: 100%;
                 

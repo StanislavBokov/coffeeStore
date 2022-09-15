@@ -5,7 +5,7 @@
 
 .wrapperInput {
     min-width: 520px;
-
+    margin-bottom: spacing(2.5);
     label {
         position: relative;
 
@@ -62,7 +62,10 @@
         
         .errorMessage {
             color: var(--input-error-border-color);
-            padding: spacing(1);
+            // padding: spacing(1);
+            position: absolute;
+            top: 300px;
+            left:10px
          
            
         }
