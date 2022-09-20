@@ -26,7 +26,9 @@ export const Orders:FC = () => {
   return (
     <div className={styles.ordersContainer}>
       {allOrders.map(({ address, valuePayment, valueDelivery, comment, lots, email, _id, userId, isOpen }) => (
+        
         <div>
+          {  console.log(lots)}
           <div className={styles.orderData}>
             <Text>{address}</Text>
             <Text>{`Способ доставки: ${valueDelivery}`}</Text>
