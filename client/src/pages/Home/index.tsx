@@ -75,7 +75,7 @@ export const Home: FC = () => {
     setRoastDegree([]);
   };
   
-  const pageSize = 3;
+  const pageSize = 6;
   const slicedDataArray = paginate(filteredArray, currentPage, pageSize );
   return (
     <div className={styles.Home}>

@@ -20,6 +20,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/Logo/Logo"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/Logo/Logo", ".d.ts"],
   "exclude": ["node_modules"],
 }

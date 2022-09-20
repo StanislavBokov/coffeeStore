@@ -2,14 +2,10 @@
 
 .Pagination {
 
-    margin: spacing(6, 0) !important;
+    margin-top: spacing(6) ;
     @include flexbox(start);
 
     .item {
-        // border: 1px solid black;
-        // width: 40px;
-        // height: 40px;
-        // border-radius: 50%;
         text-align: center;
         line-height: 40px;
         margin-right: spacing(2);
