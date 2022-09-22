@@ -20,7 +20,7 @@
     {
         "name": "Кения Сангалай",
         "country": "Кения",
-        "images": ["https://coffee-static.storage.yandexcloud.net/files/shares/data/_newpack6/drip/drip-coffee-berri2.png","https://chaiku96.ru/assets/cache/images/750x-brown-candy-1.9fb.png", "https://w7.pngwing.com/pngs/67/815/png-transparent-coffee-beans-coffee-beans-coffee-cocoa-beans.png"],
+        "images": ["https://coffee-static.storage.yandexcloud.net/files/shares/data/_newpack6/drip/drip-coffee-berri2.png","https://chaiku96.ru/assets/cache/images/750x-brown-candy-1.9fb.png"],
         "minPrice": 350,
         "maxPrice": 1100,  
         "fermentation": "Washed",
@@ -37,7 +37,7 @@
     {
         "name": "Перу Монтеверде",
         "country": "Перу",
-        "images": ["https://coffee-static.storage.yandexcloud.net/files/shares/data/_newpack6/drip/drip-coffee-berri2.png","https://chaiku96.ru/assets/cache/images/750x-brown-candy-1.9fb.png", "https://w7.pngwing.com/pngs/67/815/png-transparent-coffee-beans-coffee-beans-coffee-cocoa-beans.png"],
+        "images": ["https://coffee-static.storage.yandexcloud.net/files/shares/data/_newpack6/drip/drip-coffee-berri2.png","https://chaiku96.ru/assets/cache/images/750x-brown-candy-1.9fb.png", "https://pngimg.com/uploads/coffee_beans/coffee_beans_PNG9275.png"],
         "minPrice": 450,
         "maxPrice": 1200,  
         "fermentation": "Hani",
@@ -54,7 +54,7 @@
     {
         "name": "Кения Гатина",
         "country": "Кения",
-        "images": ["https://coffee-static.storage.yandexcloud.net/files/shares/data/_newpack6/drip/drip-coffee-berri2.png","https://chaiku96.ru/assets/cache/images/750x-brown-candy-1.9fb.png", "https://w7.pngwing.com/pngs/67/815/png-transparent-coffee-beans-coffee-beans-coffee-cocoa-beans.png"],
+        "images": ["https://coffee-static.storage.yandexcloud.net/files/shares/data/_newpack6/drip/drip-coffee-berri2.png","https://chaiku96.ru/assets/cache/images/750x-brown-candy-1.9fb.png", "https://pngimg.com/uploads/coffee_beans/coffee_beans_PNG9275.png"],
         "minPrice": 319,
         "maxPrice": 980,  
         "fermentation": "Washed",
@@ -71,7 +71,7 @@
     {
         "name": "Гватемала Хуетенанго",
         "country": "Гватемала",
-        "images": ["https://coffee-static.storage.yandexcloud.net/files/shares/data/_newpack6/drip/drip-coffee-berri2.png","https://chaiku96.ru/assets/cache/images/750x-brown-candy-1.9fb.png", "https://w7.pngwing.com/pngs/67/815/png-transparent-coffee-beans-coffee-beans-coffee-cocoa-beans.png"],
+        "images": ["https://coffee-static.storage.yandexcloud.net/files/shares/data/_newpack6/drip/drip-coffee-berri2.png","https://chaiku96.ru/assets/cache/images/750x-brown-candy-1.9fb.png","https://pngimg.com/uploads/coffee_beans/coffee_beans_PNG9275.png"],
         "minPrice": 500,
         "maxPrice": 1300,  
         "fermentation": "Washed",
@@ -88,7 +88,7 @@
     {
         "name": "Колумбия Эксельсо",
         "country": "Колумбия",
-        "images": ["https://coffee-static.storage.yandexcloud.net/files/shares/data/_newpack6/drip/drip-coffee-berri2.png","https://chaiku96.ru/assets/cache/images/750x-brown-candy-1.9fb.png", "https://w7.pngwing.com/pngs/67/815/png-transparent-coffee-beans-coffee-beans-coffee-cocoa-beans.png"],
+        "images": ["https://coffee-static.storage.yandexcloud.net/files/shares/data/_newpack6/drip/drip-coffee-berri2.png","https://chaiku96.ru/assets/cache/images/750x-brown-candy-1.9fb.png", "https://pngimg.com/uploads/coffee_beans/coffee_beans_PNG9275.png"],
         "minPrice": 310,
         "maxPrice": 875,  
         "fermentation": "Washed",

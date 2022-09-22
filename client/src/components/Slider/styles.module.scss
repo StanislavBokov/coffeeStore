@@ -4,10 +4,14 @@
 
     .SwiperSlide {
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
         .imgCoffee {
             max-width: 250px;  
             max-height: 250px;
-           
+            
               
         }
         .bigImg {
@@ -25,10 +29,10 @@
 
     .chevronLeft {
         transform: rotate(180deg);
-        left:30px
+        left:20px
     }
     .chevronRight {
-        right: 30px
+        right: 20px
     }
 
   
