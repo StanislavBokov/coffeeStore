@@ -1,12 +1,18 @@
 @import './assets/styles/color-themes';
 @import './assets/styles/mixins';
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap');
+// @font-face {
+//   font-family: moonspace;
+//   src: url('EtelkaMonospace.otf');
+// }
 body {
   margin: 0;
   // font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
   //   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
   //   sans-serif;
-  font-family:monospace;
-  font-size: 18px;
+  // font-family:monospace;
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 20px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
